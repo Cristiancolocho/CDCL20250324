@@ -6,9 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CDCL20250324.AppWebMVC.Models;
+using Microsoft.AspNetCore.Authorization;
+using StackExchange.Redis;
+using System.Data;
 
 namespace CDCL20250324.AppWebMVC.Controllers
 {
+    [Authorize (Roles = "ADMINISTRADOR")]
     public class ProductsController : Controller
     {
         private readonly Test20250324DbContext _context;

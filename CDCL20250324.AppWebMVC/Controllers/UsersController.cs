@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authentication;
 
 namespace CDCL20250324.AppWebMVC.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly Test20250324DbContext _context;
