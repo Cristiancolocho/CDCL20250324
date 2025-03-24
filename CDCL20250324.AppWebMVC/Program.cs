@@ -1,4 +1,5 @@
 using CDCL20250324.AppWebMVC.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
