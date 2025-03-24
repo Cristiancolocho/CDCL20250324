@@ -4,12 +4,27 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Usuario</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<form asp-action="Index">
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label class="control-label">Usuario</label>
+                <select name="Id" class="form-control" asp-items="ViewBag.Id"></select>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="form-goup col-3">
+        <a class="btn btn-info" asp-action="Create">Ir a crear</a>
+        <input type="submit" value="Buscar" class="btn btn-primary" />
+    </div>
+    <br />
+</form>
+
+<table class="table"  id="myTable">
     <thead>
         <tr>
             <th>
@@ -49,11 +64,31 @@
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+             // $('#myTable').DataTable();
+
+            // $('#myTable').DataTable({
+            //      "language": {
+            //     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            //     }
+            // });
+
+             $('#myTable').DataTable({
+               "language":languageTable
+             });
+        });
+    </script>
+}
